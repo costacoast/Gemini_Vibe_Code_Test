@@ -19,7 +19,8 @@ export const PROJECTS: Project[] = [
     description: "A first-of-its-kind digital experience that allowed users to test drive the new NSX before it hit the showroom floor. We utilized WebGL and biometric feedback sensors to generate a personalized driving music score based on the user's excitement levels during the virtual drive.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1600&auto=format&fit=crop",
-    awards: ["FWA Site of the Day", "Cannes Lion - Shortlist", "Webby Award Winner"]
+    awards: ["FWA Site of the Day", "Cannes Lion - Shortlist", "Webby Award Winner"],
+    company: "Acura"
   },
   {
     id: "google-sandbox",
@@ -28,7 +29,8 @@ export const PROJECTS: Project[] = [
     description: "An interactive 3D playground built to demonstrate the capabilities of Chrome and the modern web. We partnered with digital artists to create procedural art pieces that users could manipulate in real-time using their mobile devices as controllers.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop",
-    awards: ["Awwwards Site of the Month"]
+    awards: ["Awwwards Site of the Month"],
+    company: "Google"
   },
   {
     id: "natgeo-depths",
@@ -37,7 +39,8 @@ export const PROJECTS: Project[] = [
     description: "A scrolling narrative experience that takes users from sea level to the bottom of the Mariana Trench. The project utilized parallax scrolling and spatial audio to create a sense of pressure and depth, educating users on the unique ecosystems found at each layer of the ocean.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=1600&auto=format&fit=crop",
-    awards: ["Webby Honoree - Education"]
+    awards: ["Webby Honoree - Education"],
+    company: "National Geographic"
   },
   {
     id: "jetblue-getaways",
@@ -46,6 +49,7 @@ export const PROJECTS: Project[] = [
     description: "We built a recommendation engine that analyzed a user's social media footprint to suggest the perfect vacation destination. The system dynamically generated video trailers for their trip, pulling in live API data for weather, flight prices, and local events.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop",
+    company: "JetBlue"
   },
   {
     id: "royal-caribbean",
@@ -54,7 +58,8 @@ export const PROJECTS: Project[] = [
     description: "Developed a prototype mask equipped with computer vision to help divers identify marine life in real-time. The accompanying web platform aggregated data from dives across the fleet, creating a living map of underwater biodiversity.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1544551763-46a8723ba3f9?q=80&w=1600&auto=format&fit=crop",
-    awards: ["Innovation in Travel Award"]
+    awards: ["Innovation in Travel Award"],
+    company: "Royal Caribbean"
   },
   {
     id: "data-viz",
@@ -63,6 +68,7 @@ export const PROJECTS: Project[] = [
     description: "A large-scale lobby installation for a tech giant visualizing real-time network traffic across the globe. The piece transformed raw server logs into a beautiful, flowing particle system that reacted to the volume and velocity of data packets.",
     mediaType: "image",
     mediaUrl: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=1600&auto=format&fit=crop",
+    company: "Confidential"
   }
 ];
 

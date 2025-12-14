@@ -2,7 +2,11 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import { PROJECTS } from '../constants';
 
-const WorkSection: React.FC = () => {
+interface Props {
+  onProjectSelect: (id: string) => void;
+}
+
+const WorkSection: React.FC<Props> = ({ onProjectSelect }) => {
   return (
     <section id="work" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -16,7 +20,11 @@ const WorkSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              onClick={onProjectSelect}
+            />
           ))}
         </div>
       </div>

@@ -1,14 +1,18 @@
 import React from 'react';
 import { Project } from '../types';
-import { Trophy } from 'lucide-react';
+import { Trophy, ArrowRight } from 'lucide-react';
 
 interface Props {
   project: Project;
+  onClick: (id: string) => void;
 }
 
-const ProjectCard: React.FC<Props> = ({ project }) => {
+const ProjectCard: React.FC<Props> = ({ project, onClick }) => {
   return (
-    <div className="group relative bg-brand-surface border border-white/5 rounded-xl overflow-hidden hover:border-brand-accent/30 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+    <div 
+      onClick={() => onClick(project.id)}
+      className="group relative bg-brand-surface border border-white/5 rounded-xl overflow-hidden hover:border-brand-accent/30 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] cursor-pointer"
+    >
       
       {/* 16:9 Media Container */}
       <div className="relative w-full aspect-video overflow-hidden bg-black">
@@ -16,10 +20,11 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
           <video 
             src={project.mediaUrl} 
             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
-            autoPlay 
             muted 
             loop 
             playsInline 
+            onMouseOver={e => e.currentTarget.play()}
+            onMouseOut={e => e.currentTarget.pause()}
           />
         ) : (
           <img 
@@ -29,8 +34,13 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
           />
         )}
         
-        {/* Overlay gradient for text readability if needed */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent opacity-50"></div>
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent opacity-60"></div>
+        
+        {/* View Project Indicator */}
+        <div className="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-white text-xs font-mono py-1 px-3 rounded-full opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 border border-white/10">
+          VIEW PROJECT <ArrowRight size={12} />
+        </div>
       </div>
 
       {/* Content Container */}
@@ -49,7 +59,7 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
           {project.title}
         </h3>
 
-        <p className="text-brand-text/70 text-sm leading-relaxed mb-6 flex-grow">
+        <p className="text-brand-text/70 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
           {project.description}
         </p>
 

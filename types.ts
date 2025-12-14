@@ -34,4 +34,5 @@ export interface Project {
   mediaUrl: string;
   awards?: string[];
   link?: string;
+  company?: string;
 }

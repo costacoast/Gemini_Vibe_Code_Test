@@ -5,12 +5,14 @@ import WorkSection from './components/WorkSection';
 import ExperienceItem from './components/ExperienceItem';
 import SkillsSection from './components/SkillsSection';
 import Footer from './components/Footer';
-import { EXPERIENCE, EDUCATION_DATA, NAV_LINKS, PERSONAL_INFO } from './constants';
+import ProjectDetail from './components/ProjectDetail';
+import { EXPERIENCE, EDUCATION_DATA, NAV_LINKS, PROJECTS } from './constants';
 import { Menu, X } from 'lucide-react';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +22,33 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const selectedProject = PROJECTS.find(p => p.id === selectedProjectId);
+  const currentIndex = PROJECTS.findIndex(p => p.id === selectedProjectId);
+
+  const handleNextProject = () => {
+    const nextIndex = (currentIndex + 1) % PROJECTS.length;
+    setSelectedProjectId(PROJECTS[nextIndex].id);
+  };
+
+  const handlePrevProject = () => {
+    const prevIndex = (currentIndex - 1 + PROJECTS.length) % PROJECTS.length;
+    setSelectedProjectId(PROJECTS[prevIndex].id);
+  };
+
   return (
     <div className="min-h-screen bg-brand-dark text-brand-text font-sans selection:bg-brand-accent selection:text-brand-dark">
       <NetworkBackground />
       
+      {/* Project Detail Overlay */}
+      {selectedProject && (
+        <ProjectDetail 
+          project={selectedProject} 
+          onClose={() => setSelectedProjectId(null)}
+          onNext={handleNextProject}
+          onPrev={handlePrevProject}
+        />
+      )}
+
       {/* Navigation */}
       <nav 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -78,7 +103,7 @@ function App() {
       <main>
         <Hero />
         
-        <WorkSection />
+        <WorkSection onProjectSelect={setSelectedProjectId} />
         
         {/* Experience Section */}
         <section id="experience" className="py-24 md:py-32 relative z-10 px-6">
