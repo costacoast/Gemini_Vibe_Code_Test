@@ -4,23 +4,22 @@ import { Linkedin, Mail, Globe, MapPin, Download } from 'lucide-react';
 export const PERSONAL_INFO = {
   name: "Costa Boudouvas",
   title: "Group Creative Director",
-  tagline: "Impossible is the boundary of our own creativity.",
-  summary: "A classically trained computer scientist who has spent the past 15 years helping brands develop their online presence, drive sales, and use technical innovations to steal an unfair share of attention. Specializing in ideas at the intersection of creativity and innovation.",
+  tagline: "Impossible is just the boundary of our own creativity.",
+  summary: "A classically trained computer scientist who has spent the past 15 years helping brands develop their online presence, drive sales, overcome challenges and use the right mix of innovation and storytelling to steal an unfair share of attention.",
   location: "Boston, MA",
-  email: "Costa@Boudouvas.com",
-  website: "www.boudouvas.com"
+  email: "hi@Boudouvas.com",
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: "acura-nsx",
-    title: "Acura NSX Drive Experience",
-    subtitle: "Merging Virtual Reality with Automotive Engineering",
-    description: "A first-of-its-kind digital experience that allowed users to test drive the new NSX before it hit the showroom floor. We utilized WebGL and biometric feedback sensors to generate a personalized driving music score based on the user's excitement levels during the virtual drive.",
+    id: "GoogleCloud",
+    title: "Google | Ask The Cloud",
+    subtitle: "Using the power of Google Cloud to literally sell itself",
+    description: "CTO’s have a lot of questions about the cloud. <br/>So we built a Google Cloud powered voice assistant with the smarts to answer questions about, well, itself. Back in 2015 Google Cloud was a distant third place challenger in the aggressive marketshare race as enterprises were moving to the cloud en masse. Audience research revealed a major opportunity: Enterprise CTOs had a lot of questions about Google's unique approach to cloud services. Questions they weren't ready to talk with a salesperson about directly. So we put those cloud tools to work, creating a custom voice agent trained to answer all the questions CTOs were too gunshy to talk with a sales rep about. Then we crafted a multi-step sales enablement flow to give them custom Google Home devices in exchange for entering the sales pipeline."
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1600&auto=format&fit=crop",
-    awards: ["FWA Site of the Day", "Cannes Lion - Shortlist", "Webby Award Winner"],
-    company: "Acura"
+    mediaUrl: "https://player.vimeo.com/video/272581567?byline=0&portrait=0",
+    awards: "",
+    company: "Google"
   },
   {
     id: "google-sandbox",
