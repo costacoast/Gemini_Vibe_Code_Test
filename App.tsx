@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NetworkBackground from './components/NetworkBackground';
 import Hero from './components/Hero';
+import WorkSection from './components/WorkSection';
 import ExperienceItem from './components/ExperienceItem';
 import SkillsSection from './components/SkillsSection';
 import Footer from './components/Footer';
@@ -76,6 +77,8 @@ function App() {
       {/* Main Content */}
       <main>
         <Hero />
+        
+        <WorkSection />
         
         {/* Experience Section */}
         <section id="experience" className="py-24 md:py-32 relative z-10 px-6">

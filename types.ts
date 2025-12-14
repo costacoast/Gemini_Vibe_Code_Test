@@ -24,3 +24,14 @@ export interface Skill {
   category: string;
   items: string[];
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  mediaType: 'image' | 'video';
+  mediaUrl: string;
+  awards?: string[];
+  link?: string;
+}
