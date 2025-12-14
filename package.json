@@ -9,29 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^0.344.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "lucide-react": "^0.561.0",
+    "vite": "^7.2.7",
+    "@vitejs/plugin-react": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
-    "vite": "^6.4.1"
-  },
-  "description": "<div align=\"center\"> <img width=\"1200\" height=\"475\" alt=\"GHBanner\" src=\"https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6\" /> </div>",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/costacoast/Gemini_Vibe_Code_Test.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/costacoast/Gemini_Vibe_Code_Test/issues"
-  },
-  "homepage": "https://github.com/costacoast/Gemini_Vibe_Code_Test#readme"
+    "vite": "^6.2.0"
+  }
 }

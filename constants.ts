@@ -4,30 +4,33 @@ import { Linkedin, Mail, Globe, MapPin, Download } from 'lucide-react';
 export const PERSONAL_INFO = {
   name: "Costa Boudouvas",
   title: "Group Creative Director",
-  tagline: "Impossible is just the boundary of our own creativity.",
-  summary: "A classically trained computer scientist who has spent the past 15 years helping brands develop their online presence, drive sales, overcome challenges and use the right mix of innovation and storytelling to steal an unfair share of attention.",
+  tagline: "Impossible is the boundary of our own creativity.",
+  summary: "A classically trained computer scientist who has spent the past 15 years helping brands develop their online presence, drive sales, and use technical innovations to steal an unfair share of attention. Specializing in ideas at the intersection of creativity and innovation.",
   location: "Boston, MA",
-  email: "hi@Boudouvas.com",
+  email: "Costa@Boudouvas.com",
+  website: "www.boudouvas.com"
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: "GoogleCloud",
-    title: "Google | Ask The Cloud",
-    subtitle: "Using the power of Google Cloud to literally sell itself",
-    description: "CTO’s have a lot of questions about the cloud. <br/>So we built a Google Cloud powered voice assistant with the smarts to answer questions about, well, itself. Back in 2015 Google Cloud was a distant third place challenger in the aggressive marketshare race as enterprises were moving to the cloud en masse. Audience research revealed a major opportunity: Enterprise CTOs had a lot of questions about Google's unique approach to cloud services. Questions they weren't ready to talk with a salesperson about directly. So we put those cloud tools to work, creating a custom voice agent trained to answer all the questions CTOs were too gunshy to talk with a sales rep about. Then we crafted a multi-step sales enablement flow to give them custom Google Home devices in exchange for entering the sales pipeline."
+    id: "acura-nsx",
+    title: "Acura NSX Drive Experience",
+    subtitle: "Merging Virtual Reality with Automotive Engineering",
+    description: "A first-of-its-kind digital experience that allowed users to test drive the new NSX before it hit the showroom floor. We utilized WebGL and biometric feedback sensors to generate a personalized driving music score based on the user's excitement levels during the virtual drive.",
     mediaType: "image",
-    mediaUrl: "https://player.vimeo.com/video/272581567?byline=0&portrait=0",
-    awards: "",
-    company: "Google"
+    mediaUrl: "images/acura.jpg", // Expects file at public/images/acura.jpg
+    thumbnailUrl: "images/acura-thumb.jpg", // Optional thumbnail
+    awards: ["FWA Site of the Day", "Cannes Lion - Shortlist", "Webby Award Winner"],
+    company: "Acura"
   },
   {
     id: "google-sandbox",
     title: "Google Creative Sandbox",
     subtitle: "Showcasing the Future of Web Technology",
     description: "An interactive 3D playground built to demonstrate the capabilities of Chrome and the modern web. We partnered with digital artists to create procedural art pieces that users could manipulate in real-time using their mobile devices as controllers.",
-    mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop",
+    mediaType: "youtube",
+    mediaUrl: "dQw4w9WgXcQ", // YouTube Video ID
+    thumbnailUrl: "images/google-sandbox.jpg", // Cover image for the card
     awards: ["Awwwards Site of the Month"],
     company: "Google"
   },
@@ -36,8 +39,9 @@ export const PROJECTS: Project[] = [
     title: "National Geographic: Into the Depths",
     subtitle: "Immersive Educational Storytelling",
     description: "A scrolling narrative experience that takes users from sea level to the bottom of the Mariana Trench. The project utilized parallax scrolling and spatial audio to create a sense of pressure and depth, educating users on the unique ecosystems found at each layer of the ocean.",
-    mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=1600&auto=format&fit=crop",
+    mediaType: "vimeo",
+    mediaUrl: "76979871", // Vimeo Video ID
+    thumbnailUrl: "images/natgeo.jpg",
     awards: ["Webby Honoree - Education"],
     company: "National Geographic"
   },
@@ -47,7 +51,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Dynamic Personalization Engine",
     description: "We built a recommendation engine that analyzed a user's social media footprint to suggest the perfect vacation destination. The system dynamically generated video trailers for their trip, pulling in live API data for weather, flight prices, and local events.",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop",
+    mediaUrl: "images/jetblue.jpg",
     company: "JetBlue"
   },
   {
@@ -56,7 +60,7 @@ export const PROJECTS: Project[] = [
     subtitle: "AI-Powered Exploration",
     description: "Developed a prototype mask equipped with computer vision to help divers identify marine life in real-time. The accompanying web platform aggregated data from dives across the fleet, creating a living map of underwater biodiversity.",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1544551763-46a8723ba3f9?q=80&w=1600&auto=format&fit=crop",
+    mediaUrl: "images/royal.jpg",
     awards: ["Innovation in Travel Award"],
     company: "Royal Caribbean"
   },
@@ -65,8 +69,9 @@ export const PROJECTS: Project[] = [
     title: "Global Connectivity Visualizer",
     subtitle: "Enterprise Data Art Installation",
     description: "A large-scale lobby installation for a tech giant visualizing real-time network traffic across the globe. The piece transformed raw server logs into a beautiful, flowing particle system that reacted to the volume and velocity of data packets.",
-    mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=1600&auto=format&fit=crop",
+    mediaType: "video",
+    mediaUrl: "videos/dataviz.mp4", // Local video file example
+    thumbnailUrl: "images/dataviz-thumb.jpg",
     company: "Confidential"
   }
 ];

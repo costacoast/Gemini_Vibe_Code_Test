@@ -29,6 +29,52 @@ const ProjectDetail: React.FC<Props> = ({ project, onClose, onNext, onPrev }) =>
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose, onNext, onPrev]);
 
+  const renderMedia = () => {
+    switch (project.mediaType) {
+      case 'youtube':
+        return (
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${project.mediaUrl}?autoplay=1&modestbranding=1&rel=0`}
+            title={project.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        );
+      case 'vimeo':
+        return (
+          <iframe
+            className="w-full h-full"
+            src={`https://player.vimeo.com/video/${project.mediaUrl}?autoplay=1&title=0&byline=0&portrait=0`}
+            title={project.title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        );
+      case 'video':
+        return (
+          <video 
+            src={project.mediaUrl} 
+            className="w-full h-full object-cover" 
+            autoPlay 
+            muted 
+            loop 
+            controls
+            playsInline 
+          />
+        );
+      case 'image':
+      default:
+        return (
+          <img 
+            src={project.mediaUrl} 
+            alt={project.title} 
+            className="w-full h-full object-contain bg-black"
+          />
+        );
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto animate-[fadeIn_0.3s_ease-out]">
       {/* Top Navigation Bar */}
@@ -64,22 +110,7 @@ const ProjectDetail: React.FC<Props> = ({ project, onClose, onNext, onPrev }) =>
       <div className="max-w-7xl mx-auto px-6 pb-20 pt-4">
         {/* Media Hero */}
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-brand-accent/5 border border-white/10 mb-12 bg-black">
-          {project.mediaType === 'video' ? (
-             <video 
-              src={project.mediaUrl} 
-              className="w-full h-full object-cover" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-            />
-          ) : (
-            <img 
-              src={project.mediaUrl} 
-              alt={project.title} 
-              className="w-full h-full object-cover"
-            />
-          )}
+          {renderMedia()}
         </div>
 
         {/* Content Grid */}

@@ -30,8 +30,9 @@ export interface Project {
   title: string;
   subtitle?: string;
   description: string;
-  mediaType: 'image' | 'video';
-  mediaUrl: string;
+  mediaType: 'image' | 'video' | 'youtube' | 'vimeo';
+  mediaUrl: string; // The full path to image/video OR the ID for youtube/vimeo
+  thumbnailUrl?: string; // Optional: Path to a specific cover image for the card
   awards?: string[];
   link?: string;
   company?: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { Trophy, ArrowRight } from 'lucide-react';
+import { Trophy, ArrowRight, Play, Youtube, Video } from 'lucide-react';
 
 interface Props {
   project: Project;
@@ -8,6 +8,10 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = ({ project, onClick }) => {
+  // Determine the display image: Use thumbnailUrl if available, otherwise mediaUrl (only if it's an image)
+  // If it's a video/embed without a thumbnail, we render a placeholder or the video element if local
+  const displayImage = project.thumbnailUrl || (project.mediaType === 'image' ? project.mediaUrl : null);
+
   return (
     <div 
       onClick={() => onClick(project.id)}
@@ -16,8 +20,10 @@ const ProjectCard: React.FC<Props> = ({ project, onClick }) => {
       
       {/* 16:9 Media Container */}
       <div className="relative w-full aspect-video overflow-hidden bg-black">
-        {project.mediaType === 'video' ? (
-          <video 
+        
+        {project.mediaType === 'video' && !project.thumbnailUrl ? (
+           // Direct video file without thumbnail - try to autoplay muted loop
+           <video 
             src={project.mediaUrl} 
             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
             muted 
@@ -27,8 +33,9 @@ const ProjectCard: React.FC<Props> = ({ project, onClick }) => {
             onMouseOut={e => e.currentTarget.pause()}
           />
         ) : (
+          // Standard Image or Thumbnail for Video/Embed
           <img 
-            src={project.mediaUrl} 
+            src={displayImage || 'https://placehold.co/600x400/000000/FFF?text=No+Image'} 
             alt={project.title} 
             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
           />
@@ -37,6 +44,13 @@ const ProjectCard: React.FC<Props> = ({ project, onClick }) => {
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent opacity-60"></div>
         
+        {/* Media Type Icon (Center) */}
+        {(project.mediaType === 'youtube' || project.mediaType === 'vimeo' || project.mediaType === 'video') && (
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-sm p-3 rounded-full border border-white/20 text-white opacity-80 group-hover:scale-110 transition-all duration-300">
+                <Play size={20} fill="currentColor" />
+            </div>
+        )}
+
         {/* View Project Indicator */}
         <div className="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-white text-xs font-mono py-1 px-3 rounded-full opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 border border-white/10">
           VIEW PROJECT <ArrowRight size={12} />
